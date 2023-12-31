@@ -150,7 +150,7 @@ void loop()
   Serial.println("");
   // delay(10);
 
-  if (chackConnection() == false)
+  if (checkConnection() == false)
   {
     connectToWiFi();
   }

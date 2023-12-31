@@ -75,6 +75,7 @@ void loop()
   int s2 = map(analogRead(SENS_1), 2000, 600, 0, 255);
   int s3 = map(analogRead(SENS_2), 2000, 600, 0, 255);
 
+  // Задаем предельные значения сенсоров 
   if (s1 < 30)
     s1 = 0;
   if (s1 > 255)
@@ -90,6 +91,7 @@ void loop()
   if (s3 > 255)
     s3 = 255;
 
+  // Проверяем условие и отпрвляем данные
   if (s2 > 0 && s1 == 0 && s3 == 0)
   {
     /*master.print('A'); master.print(s2); master.print(' ');

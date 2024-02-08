@@ -94,63 +94,40 @@ void loop()
   // Проверяем условие и отпрвляем данные
   if (s2 > 0 && s1 == 0 && s3 == 0)
   {
-    /*master.print('A'); master.print(s2); master.print(' ');
-    master.print('B'); master.print(s2); master.print(' ');
-    master.print('C'); master.print(s2); master.print(' ');
-    master.print('D'); master.print(s2); master.print(' ');*/
     master.print("A" + String(s2) + " B" + String(s2) + " C" + String(s2) + " D" + String(s2) + " ");
     master.flush();
   }
   else if (s3 > 0 && s1 == 0 && s2 == 0)
   {
-    /*master.print('A'); master.print(-s3); master.print(' ');
-    master.print('B'); master.print(-s3); master.print(' ');
-    master.print('C'); master.print(-s3); master.print(' ');
-    master.print('D'); master.print(-s3); master.print(' ');*/
     master.print("A" + String(-s3) + " B" + String(-s3) + " C" + String(-s3) + " D" + String(-s3) + " ");
     master.flush();
   }
   else if (s2 > 0 && s1 > 0 && s3 == 0)
   {
-    /*master.print('A'); master.print(-s2); master.print(' ');
-    master.print('B'); master.print(s2); master.print(' ');
-    master.print('C'); master.print(-s2); master.print(' ');
-    master.print('D'); master.print(s2); master.print(' ');*/
     master.print("A" + String(-s2) + " B" + String(s2) + " C" + String(-s2) + " D" + String(s2) + " ");
     master.flush();
   }
   else if (s2 > 0 && s3 > 0 && s1 == 0)
   {
-    /*master.print('A'); master.print(s2); master.print(' ');
-    master.print('B'); master.print(-s2); master.print(' ');
-    master.print('C'); master.print(s2); master.print(' ');
-    master.print('D'); master.print(-s2); master.print(' ');*/
     master.print("A" + String(s2) + " B" + String(-s2) + " C" + String(s2) + " D" + String(-s2) + " ");
     master.flush();
   }
   else
   {
-    /*master.print("A0 ");
-    master.print("B0 ");
-    master.print("C0 ");
-    master.print("D0 ");*/
     master.print("A0 B0 C0 D0 ");
     master.flush();
   }
 
-  /*Serial.print(analogRead(SENS_0));
-  Serial.print(" ");*/
+
   Serial.print(s1);
   Serial.print("   ");
-  /*Serial.print(analogRead(SENS_1));
-  Serial.print(" ");*/
+
   Serial.print(s2);
   Serial.print("   ");
-  /*Serial.print(analogRead(SENS_2));
-  Serial.print(" ");*/
+
   Serial.print(s3);
   Serial.println("");
-  // delay(10);
+
 
   if (checkConnection() == false)
   {

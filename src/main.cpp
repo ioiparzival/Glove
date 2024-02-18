@@ -1,3 +1,42 @@
+
+// Description:
+// This code is designed to establish a connection to a Wi-Fi network and a server, read sensor values, and send them to the server in a specific format.
+
+// Libraries Used:
+// - WiFi.h: This library provides the ability to connect to a Wi-Fi network and interact with it.
+// - WiFiClient: This class allows creating a client that can connect to a specified internet IP address and port.
+
+// Global Variables:
+// - ssid: A string variable storing the SSID of the Wi-Fi network to connect to.
+// - password: A string variable storing the password of the Wi-Fi network.
+// - master: A WiFiClient object used for connecting to the server.
+
+// Constants:
+// - SENS_0, SENS_1, SENS_2: Pin definitions for sensors.
+
+// Functions:
+// 1. void setup(): Initializes serial communication, connects to Wi-Fi, and connects to the server.
+// 2. bool checkConnection(): Checks the connection status to Wi-Fi.
+// 3. void connectToWiFi(): Attempts to connect to the Wi-Fi network using the provided SSID and password.
+// 4. void connectToServer(): Attempts to connect to the server with the IP address "192.168.4.1" and port 80.
+// 5. void loop(): Reads sensor values, processes them, sends data to the server, and handles Wi-Fi reconnection if needed.
+
+// Flow of Execution:
+// 1. In the setup function, serial communication is initialized, followed by connection to Wi-Fi and the server.
+// 2. In the loop function, sensor values are read and processed.
+// 3. Depending on the sensor values, data is sent to the server in a specific format.
+// 4. The connection to Wi-Fi is periodically checked, and if lost, the device attempts to reconnect.
+
+// Data Processing:
+// - Sensor values are mapped to a range of 0-255.
+// - Limit values are set for each sensor.
+// - Based on sensor conditions, specific data strings are sent to the server.
+// - If no specific conditions are met, a default data string with all sensors set to 0 is sent.
+
+// Serial Output:
+// - Sensor values are printed to the serial monitor for debugging purposes.
+
+
 #include <WiFi.h>
 
 #define SENS_0 33

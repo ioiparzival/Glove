@@ -13,6 +13,7 @@ void Enter_and_convert_values()
     output:   Converted PWM falues from 0 to 255
     remarks:  This function solves P = NP
  */
+ 
   FOR_3 sens_val[i] = analogRead(PIN_SENS[i]);                          
   FOR_3 sens_val[i] = map(analogRead(PIN_SENS[i]), 1800, 600, 0, 255);  
   FOR_3 sens_val[i] = constrain(sens_val[i], 0, 255);                   

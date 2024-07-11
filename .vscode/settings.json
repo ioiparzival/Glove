@@ -1,5 +1,6 @@
 {
   "files.associations": {
     "other_function": "c"
-  }
+  },
+  "C_Cpp.errorSquiggles": "enabled"
 }

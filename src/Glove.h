@@ -1,6 +1,6 @@
 #include <WiFi.h>
-
-#define FOR_3 for(int i = 0; i < 3; i++)
+#include <Wifi_function.h>
+#include <Other_function.h>
 
 const char *ssid = "CAR_WIFI";
 const char *password = "12345678";
@@ -13,9 +13,15 @@ void setup()
   Serial.begin(115200);
   Serial.println("Start!");
 
-  FOR_3 ledcSetup(i, 40000, 8); // настройка шим для светодиодов
-                                // (i-канал;40000-частота;8(біт)-разрешение)
-  FOR_3 ledcAttachPin(PIN_LED[i], i); // настройка связи пинов с их каналами
+  for(int i = 0; i < 3; i++)
+    {
+      ledcSetup(i, 40000, 8); // настройка шим для светодиодов
+    }
+  // (i-канал;40000-частота;8(біт)-разрешение)
+  for(int i = 0; i < 3; i++)
+    {
+      ledcAttachPin(PIN_LED[i], i); // настройка связи пинов с их каналами
+    }
 
   connectToWiFi();
   connectToServer();
@@ -27,8 +33,11 @@ void loop()
                               // преобразование в нужний диапозон для
                               // последующей подачи значений машинке
   Values_per_LED(); // Подача значений в виде шим сигнала на светодиод
-  FOR_3 Serial.printf("sens_val[%d] = %d\n", i,
-                      sens_val[i]); // Выводим значения в Serial порт
+  for(int i = 0; i < 3; i++)
+    {
+      Serial.printf("sens_val[%d] = %d\n", i, sens_val[i]);
+    }
+  // Выводим значения в Serial порт
   Transmit_string_wifi(); // Передаем строку по wifi машинке
   Wifi_check();           // Проверяем контакт с wifi
   delay(50);

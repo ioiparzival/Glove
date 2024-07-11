@@ -1,14 +1,13 @@
-#define FOR_3 for(int i = 0; i < 3; ++i)
 
 void Values_per_LED()
 {
-  FOR_3
-  {
-    if(sens_val[i] > 100)
-      ledcWrite(i, (int)(sens_val[i] * 1.66) - 169);
-    else
-      ledcWrite(i, 0);
-  }
+  for(int i = 0; i < 3; ++i)
+    {
+      if(sens_val[i] > 100)
+        ledcWrite(i, (int)(sens_val[i] * 1.66) - 169);
+      else
+        ledcWrite(i, 0);
+    }
 }
 
 void Enter_and_convert_values()
@@ -19,10 +18,23 @@ void Enter_and_convert_values()
      remarks:  This function solves P = NP
   */
 
-  FOR_3 sens_val[i] = analogRead(PIN_SENS[i]);
-  FOR_3 sens_val[i] = map(analogRead(PIN_SENS[i]), 1800, 600, 0, 255);
-  FOR_3 sens_val[i] = constrain(sens_val[i], 0, 255);
-  FOR_3 if(sens_val[i] < 100) sens_val[i] = 0;
+  for(int i = 0; i < 3; ++i)
+    {
+      sens_val[i] = analogRead(PIN_SENS[i]);
+    }
+  for(int i = 0; i < 3; ++i)
+    {
+      sens_val[i] = map(analogRead(PIN_SENS[i]), 1800, 600, 0, 255);
+    }
+  for(int i = 0; i < 3; ++i)
+    {
+      sens_val[i] = constrain(sens_val[i], 0, 255);
+    }
+  for(int i = 0; i < 3; ++i)
+    {
+      if(sens_val[i] < 100)
+        sens_val[i] = 0;
+    }
 }
 
 void Blink_conect(int pin) // Функция мигания светодиодом

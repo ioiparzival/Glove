@@ -14,3 +14,4 @@ All numbers less than 100 are converted to 0, as a shim of this nature will not 
 ## Authors
 
 - [@ioiparzival](https://github.com/ioiparzival)
+- [@kovalmixa](https://github.com/kovalmixa)

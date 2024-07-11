@@ -25,38 +25,6 @@ void Transmit_string_wifi() // Передаем строку по wifi маши�
   master.flush();
 }
 
-void Wifi_check() // Проверяем контакт с wifi
-{
-  if(checkConnection() == false)
-    {
-      connectToWiFi();
-      connectToServer();
-      Blink_conect(2);
-    }
-  else
-    Serial.println("WifiConnect");
-}
-
-bool checkConnection() // Проверка соединения с Wi-Fi...
-{
-  int attempts = 0;
-  while(WiFi.status() != WL_CONNECTED)
-    {
-      delay(1000);
-      Serial.print(F("."));
-      attempts++;
-
-      if(attempts > 20)
-        {
-          Serial.println("Нет соединения с Wi-Fi!");
-          return false;
-        }
-    }
-
-  Serial.println("Соединение с Wi-Fi существует!");
-  return true;
-}
-
 void connectToWiFi() // Создание сети wifi
 {
   Serial.println("Подключение к Wi-Fi...");

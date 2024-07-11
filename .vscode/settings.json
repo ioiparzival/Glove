@@ -1,6 +1,7 @@
 {
   "files.associations": {
-    "other_function": "c"
+    "other_function": "c",
+    "wifi_function": "cpp"
   },
   "C_Cpp.errorSquiggles": "enabled"
 }

@@ -1,3 +1,5 @@
+#define FOR_3 for(int i = 0; i < 3; ++i)
+
 void Values_per_LED()
 {
   FOR_3

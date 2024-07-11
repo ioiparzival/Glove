@@ -49,8 +49,8 @@
 // - Sensor values are printed to the serial monitor for debugging purposes.
 
 #include <WiFi.h>
-#include <Other_function>
-#include <Wifi_function>
+#include <Other_function.h>
+#include <Wifi_function.h>
 
 #define SENS_0 33
 #define SENS_1 32

@@ -22,13 +22,14 @@ void setup()
     {
       ledcAttachPin(PIN_LED[i], i); // настройка связи пинов с их каналами
     }
-
-  connectToWiFi();
-  connectToServer();
 }
 
 void loop()
 {
+  if(WiFi.status() != WL_CONNECTED){                           // Автоконнект/Реконнект
+    connectToWiFi();
+    connectToServer();
+  }
   Enter_and_convert_values(); // Ввод c АЦП значений напряжения и
                               // преобразование в нужний диапозон для
                               // последующей подачи значений машинке
@@ -39,6 +40,5 @@ void loop()
     }
   // Выводим значения в Serial порт
   Transmit_string_wifi(); // Передаем строку по wifi машинке
-  Wifi_check();           // Проверяем контакт с wifi
   delay(50);
 }

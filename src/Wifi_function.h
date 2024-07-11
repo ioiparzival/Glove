@@ -1,4 +1,6 @@
 
+int sens_val[3], PIN_SENS[3] = {33, 32, 35}, PIN_LED[3] = {19, 18, 5};
+
 void Transmit_string_wifi() // Передаем строку по wifi машинке
 {
   if(sens_val[1] > 0 && sens_val[0] == 0 && sens_val[2] == 0)
